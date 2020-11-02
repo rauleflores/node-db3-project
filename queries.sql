@@ -31,3 +31,22 @@ SELECT
 FROM Order o
 LEFT JOIN Customer c ON c.id = o.CustomerId
 LEFT JOIN Employee e ON e.id = o.EmployeeId;
+
+-- Stretch Queries --
+
+-- 1 --
+
+SELECT
+        CategoryName as "Category",
+        COUNT(*) as "Count"
+FROM Products p
+JOIN Categories c ON c.CategoryId = p.CategoryId
+GROUP BY CategoryName;
+
+-- 2 --
+
+SELECT
+        OrderId,
+        SUM(Quantity) as "ItemCount"
+FROM OrderDetails
+GROUP BY OrderId;
